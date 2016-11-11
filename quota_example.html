@@ -75,6 +75,7 @@ function showFreeSpace() {
 function onSuccess(usedSpace, remainingSpace) {
   
   var displaySpace = document.querySelector("#space");
+  displaySpace.scrollTop = displaySpace.scrollHeight;
   var differ=0;
   var differValue=0;
 
