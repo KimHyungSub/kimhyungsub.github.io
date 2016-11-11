@@ -91,7 +91,7 @@ function onSuccess(usedSpace, remainingSpace) {
     differ = firstValue-remainingSpace;
     differValue = eval(differ/1024);
 
-    displaySpace.innerHTML += remaining space = " + remainingSpace + "Byte" + " (" + remainingSpace_KiB + "KiB" + ")" + ", difference value = " + differValue + "KiB" + "<br>";
+    displaySpace.innerHTML += remaining space + " = " + remainingSpace + "Byte" + " (" + remainingSpace_KiB + "KiB" + ")" + ", difference value = " + differValue + "KiB" + "<br>";
  
   }
     showFreeSpace();
@@ -116,7 +116,7 @@ function writeURL() {
 </head>
 <body onload="writeURL()">
 
-<p><h1>This demo shows the used quota and the remaining free space </h1></p>
+<p><h1>This demo shows your's remaining free space on browser.</h1></p>
 
 <button onclick="enter()">Enter</button>
 
