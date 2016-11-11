@@ -85,15 +85,14 @@ function onSuccess(usedSpace, remainingSpace) {
     firstValue = remainingSpace;    
   }
   if(space != remainingSpace)
-  {
-    document.body.scrollTop = document.body.scrollHeight;
-	  
+  {	  
     space = remainingSpace;
     differ = firstValue-remainingSpace;
     differValue = eval(differ/1024);
 
     displaySpace.innerHTML += "remaining space" + " = " + remainingSpace + "Byte" + ", difference value = " + differValue + "KiB" + "<br>";
- 
+    
+    document.body.scrollTop = document.body.scrollHeight;
   }
     showFreeSpace();
 }
