@@ -87,7 +87,7 @@ function onSuccess(usedSpace, remainingSpace) {
   if(space != remainingSpace)
   {
     space = remainingSpace;
-    remainingSpace_KiB = remainingSpace/1024;
+    remainingSpace_KiB = Math.round10(remainingSpace/1024,-2);
     differ = firstValue-remainingSpace;
     differValue = eval(differ/1024);
 
