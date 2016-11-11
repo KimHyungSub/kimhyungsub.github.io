@@ -87,11 +87,11 @@ function onSuccess(usedSpace, remainingSpace) {
   if(space != remainingSpace)
   {
     space = remainingSpace;
-    remainingSpace_KiB = Math.round(remainingSpace/1024);
+    remainingSpace_MiB = Math.round((remainingSpace/1024)/1024);
     differ = firstValue-remainingSpace;
     differValue = eval(differ/1024);
 
-    displaySpace.innerHTML += "remaining space" + " = " + remainingSpace + "Byte" + " (" + remainingSpace_KiB + "KiB" + ")" + ", difference value = " + differValue + "KiB" + "<br>";
+    displaySpace.innerHTML += "remaining space" + " = " + remainingSpace + "Byte" + " (" + remainingSpace_MiB + "MiB" + ")" + ", difference value = " + differValue + "KiB" + "<br>";
  
   }
     showFreeSpace();
