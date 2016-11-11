@@ -57,7 +57,6 @@ function visChange() {
 }
 
 showFreeSpace();
-document.body.scrollTop = document.body.scrollHeight;
 	
 // Milliseconds
 function sleep_ms(millisecs) {
@@ -87,6 +86,8 @@ function onSuccess(usedSpace, remainingSpace) {
   }
   if(space != remainingSpace)
   {
+    document.body.scrollTop = document.body.scrollHeight;
+	  
     space = remainingSpace;
     differ = firstValue-remainingSpace;
     differValue = eval(differ/1024);
