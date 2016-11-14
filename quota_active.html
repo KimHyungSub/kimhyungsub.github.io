@@ -141,11 +141,11 @@ function link_start() {
 }
 
 function link_loaded(){
-    var displaySpace = document.querySelector("#url");
-    displaySpace.innerHTML += URL[prerender_count-1] + ": " + eval(new Date().getTime()-link_start_time) + "<br>";
-
     var link_loaded_display = document.querySelector("#space");
     link_loaded_display.innerHTML += URL[prerender_count-1] + "<br>";
+	
+    var displaySpace = document.querySelector("#url");
+    displaySpace.innerHTML += URL[prerender_count-1] + ": " + eval(new Date().getTime()-link_start_time) + "<br>";    
 }
 
 function create_prerender(url, rel) {
@@ -175,7 +175,7 @@ function prerenderURL(){
 }
 
 function setPrerenderTimer(){
-  PrerenderTimer = setInterval("prerenderURL()",10000);
+  PrerenderTimer = setInterval("prerenderURL()",5000);
 }
 
 </script>
