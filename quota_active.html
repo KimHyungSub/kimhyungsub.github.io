@@ -91,7 +91,7 @@ function onSuccess(usedSpace, remainingSpace) {
   
   var displaySpace = document.querySelector("#space");
   var differ=0;
-  var differValue=0;
+  var reduced_quota=0;
 
   count++;
  
@@ -104,17 +104,19 @@ function onSuccess(usedSpace, remainingSpace) {
   {
     space = remainingSpace;
     differ = firstValue-remainingSpace;
-    differValue = eval(differ/1024);
+    reduced_quota = eval(differ/1024);
 
-    displaySpace.innerHTML += "remaining space = " + remainingSpace + ", difference value = " + differValue + "KiB" + "<br>";
-  
+    displaySpace.innerHTML += "remaining space = " + remainingSpace + ", reduced quota = " + reduced_quota + "KiB" + "<br>";
+    
+    document.body.scrollTop = document.body.scrollHeight;
+	  
     var data = {
             Url: window.location.href,
             Count: count,
             UsedSpace: usedSpace,
             RemainingSpace: remainingSpace,
             DifferenceValue: differ,
-	    DifferenceValueKB: differValue
+	    DifferenceValueKB: reduced_quota
         };
 
     //$.post("http://141.223.83.163/Quota/QuotaLog_prerender.php", data);
