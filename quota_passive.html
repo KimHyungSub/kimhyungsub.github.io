@@ -83,7 +83,7 @@ function onSuccess(usedSpace, remainingSpace) {
   
   var displaySpace = document.querySelector("#space");
   var differ=0;
-  var differValue=0;
+  var reduced_quota=0;
 
   count++;
  
@@ -95,9 +95,9 @@ function onSuccess(usedSpace, remainingSpace) {
   {	  
     space = remainingSpace;
     differ = firstValue-remainingSpace;
-    differValue = eval(differ/1024);
+    reduced_quota = eval(differ/1024);
 
-    displaySpace.innerHTML += "remaining space" + " = " + remainingSpace + "Byte" + ", difference value = " + differValue + "KiB" + "<br>";
+    displaySpace.innerHTML += "remaining space" + " = " + remainingSpace + "Byte" + ", reduced quota = " + reduced_quota + "KiB" + "<br>";
     
     document.body.scrollTop = document.body.scrollHeight;
   }
