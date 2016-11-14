@@ -106,7 +106,8 @@ function onSuccess(usedSpace, remainingSpace) {
     differ = firstValue-remainingSpace;
     differValue = eval(differ/1024);
 
-    displaySpace.innerHTML += count + ". " +  "Used space = " + usedSpace + ", remaining space = " + remainingSpace + ", difference value = " + differValue + "KB" + "<br>";
+    displaySpace.innerHTML += URL[prerender_count-1] + "<br>";
+    displaySpace.innerHTML += "remaining space = " + remainingSpace + ", difference value = " + differValue + "KiB" + "<br>";
   
     var data = {
             Url: window.location.href,
