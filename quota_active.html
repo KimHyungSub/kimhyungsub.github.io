@@ -141,8 +141,8 @@ function link_start() {
 }
 
 function link_loaded(){
-    var link_loaded_display = document.querySelector("#space");
-    link_loaded_display.innerHTML += URL[prerender_count-1] + "<br>"; 
+    var displaySpace = document.querySelector("#url");
+    displaySpace.innerHTML += URL[prerender_count] + ": " + eval(new Date().getTime()-link_start_time) + "<br>"; 
 }
 
 function create_prerender(url, rel) {
@@ -164,9 +164,9 @@ function create_prerender(url, rel) {
 function prerenderURL(){
   
   //enter();
-  var displaySpace = document.querySelector("#url");
-  displaySpace.innerHTML += URL[prerender_count] + ": " + eval(new Date().getTime()-link_start_time) + "<br>";   
-	
+  var link_loaded_display = document.querySelector("#space");
+  link_loaded_display.innerHTML += "<h3> + "URL[prerender_count] + </h3> + "<br>"; 
+  	
   count = 0;
   
   create_prerender(URL[prerender_count], 'prerender');
