@@ -23,7 +23,9 @@ var PrerenderTimer;
 var prerender_count=0;
 var URL = ["http://google.com", "http://facebook.com", 
            "http://youtube.com", "http://yahoo.com",
-           "http://baidu.com", "http://wikipedia.org"];
+           "http://baidu.com", "http://wikipedia.org",
+	  "http://yahoo.com", "http://qq.com",
+	  "http://amazon.com","http://twitter.com"];
 
 var link_start_time=0;
 
@@ -106,7 +108,7 @@ function onSuccess(usedSpace, remainingSpace) {
     differ = firstValue-remainingSpace;
     reduced_quota = eval(differ/1024);
 
-    displaySpace.innerHTML += "remaining space = " + remainingSpace + ", reduced quota = " + reduced_quota + "KiB" + "<br>";
+    displaySpace.innerHTML += "remaining space = " + remainingSpace + "Byte" + ", reduced quota = " + reduced_quota + "KiB" + "<br>";
     
     document.body.scrollTop = document.body.scrollHeight;
 	  
