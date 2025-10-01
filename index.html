@@ -11,7 +11,15 @@
     </style> 
     
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
+
+	<style>
+	:root { --header-h: 70px; }          /* your header height */
+	html { scroll-padding-top: var(--header-h); }
+	/* optional nicety */
+	html { scroll-behavior: smooth; }
+	</style>
+	  
+	<style>
     body {
         background-color: white;
         color: black;
@@ -34,7 +42,7 @@
       width: 100%;           /* full width */
       background: #FFFFFF;
       color: black;
-      padding: 15px;
+      padding: 0px;
       text-align: center;
       z-index: 1000;         /* keeps it above other content */
     }
