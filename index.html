@@ -26,7 +26,24 @@
     .dark-mode h1 { color: goldenrod; }
     .dark-mode h2 { color: goldenrod; }
     .dark-mode h3 { color: goldenrod; }
-	    
+    
+    header {
+      position: fixed;       /* stays in place */
+      top: 0;                /* stick to the top */
+      left: 0;
+      width: 100%;           /* full width */
+      background: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      z-index: 1000;         /* keeps it above other content */
+    }
+
+    main {
+      margin-top: 70px;      /* add spacing so content isn't hidden */
+      padding: 20px;
+    }
+		
     </style>
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -36,7 +53,8 @@
     <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon">	  
   </head>
   <body>
-	   
+	  
+	<header>   
     <center>
     <hr>
     <table>
@@ -52,7 +70,8 @@
     </table>
     <hr>
     </center>
-
+    </header>
+	  
     <div align="right"> 
     <button onclick="myFunction()">Dark mode <i class="fa fa-adjust"></i> </button>
     </div> 
