@@ -54,7 +54,18 @@
   </head>
   <body>
 	  
-	<header>   
+	<header>
+    <div align="right"> 
+    <button onclick="myFunction()">Dark mode <i class="fa fa-adjust"></i> </button>
+    </div> 
+
+    <script>
+    function myFunction() {
+        var element = document.body;
+        element.classList.toggle("dark-mode");
+    }
+    </script>	
+		
     <center>
     <hr>
     <table>
@@ -70,17 +81,7 @@
     </table>
     <hr>
     </center>
-	  
-    <div align="right"> 
-    <button onclick="myFunction()">Dark mode <i class="fa fa-adjust"></i> </button>
-    </div> 
-
-    <script>
-    function myFunction() {
-        var element = document.body;
-        element.classList.toggle("dark-mode");
-    }
-    </script>	   
+	     
     </header>
 	  
     <table border="0">
